@@ -62,6 +62,22 @@ describe('addition of a new blog', () => {
 
     expect(filteredBlogs).toContainEqual(newBlog)
   })
+
+  test('succeeds while property like is not set, gets a default value as 0', async () => {
+    const newBlog = {
+      title: 'for testing',
+      author: 'Michael Chan',
+      url: 'https://reactpatterns.com/',
+    }
+
+    const blogToInsert = await api
+      .post('/api/blogs')
+      .send(newBlog)
+      .expect(201)
+      .expect('Content-Type', /application\/json/)
+
+    expect(blogToInsert.body.likes).toBe(0)
+  })
 })
 
 afterAll(() => {
