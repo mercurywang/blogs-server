@@ -37,6 +37,33 @@ describe('verify the property name', () => {
   })
 })
 
+describe('addition of a new blog', () => {
+  test('succeeds with a valid data', async () => {
+    const newBlog = {
+      title: 'for testing ',
+      author: 'Michael Chan',
+      url: 'https://reactpatterns.com/',
+      likes: 20,
+    }
+
+    await api
+      .post('/api/blogs')
+      .send(newBlog)
+      .expect(201)
+      .expect('Content-Type', /application\/json/)
+
+    const blogsAtEnd = await helper.blogsInDb()
+    expect(blogsAtEnd).toHaveLength(helper.initialBlogs.length + 1)
+
+    const filteredBlogs = blogsAtEnd.map((blog) => {
+      delete blog.id
+      return blog
+    })
+
+    expect(filteredBlogs).toContainEqual(newBlog)
+  })
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })
