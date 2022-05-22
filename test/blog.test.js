@@ -27,6 +27,16 @@ describe('when there is initially some blogs saved', () => {
   })
 })
 
+describe('verify the property name', () => {
+  test('the unique identifier property is named id', async () => {
+    const response = await api.get('/api/blogs')
+
+    response.body.forEach((blog) => {
+      expect(blog.id).toBeDefined()
+    })
+  })
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })
