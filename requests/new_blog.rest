@@ -3,8 +3,9 @@ POST http://localhost:3003/api/blogs
 Content-Type: application/json
 
 {
-  "title": "this is the first blog",
+  "title": "What a Difference a Day Made",
   "author": "Mercury Wang",
   "url": "http://www.testing.com",
-  "likes": 20
+  "likes": 20,
+  "userId": "6291cc776df80670c5876e7e"
 }
