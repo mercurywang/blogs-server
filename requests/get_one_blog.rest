@@ -1,0 +1,2 @@
+GET http://localhost:3003/api/blogs/629302dac9b15524727030e0
+Authorization: bearer toekn

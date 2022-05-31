@@ -1,6 +1,7 @@
 
-PUT http://localhost:3003/api/blogs/628a0e0ad20123259e213a15 
+PUT http://localhost:3003/api/blogs/629302dac9b15524727030e0
 Content-Type: application/json
+Authorization: bearer toekn
 
 {
   "likes": 100

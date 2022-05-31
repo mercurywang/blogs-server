@@ -1,7 +1,7 @@
 
 POST http://localhost:3003/api/blogs 
 Content-Type: application/json
-Authorization: bearer token
+Authorization: bearer toekn
 
 {
   "title": "No Time to Die",
